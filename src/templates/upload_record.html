@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/upload_or_record.css">
+{% endblock %}
+{% block title %}
+    <title>Video</title>
+{% endblock %}
+
+{% block content %}
+    <body>
+        <div id="upload-or-record">
+            <div id="upload">
+                <a href="{{ url_for('main_bp.upl', lift=lift, colour=colour) }}">
+                    <p id="uplp">Upload {{lift}} File</p>
+                    <img src="../static/img/upload.png">
+                </a>
+            </div>
+            <div id="record">
+                <a href="{{ url_for('main_bp.video', lift=lift, colour=colour) }}">
+                    <p id="recp">Record {{lift}} Set</p>
+                    <img src="../static/img/cam.png">
+                </a>
+            </div>
+        </div>
+    </body>
+{% endblock %}

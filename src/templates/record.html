@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/video.css">
+{% endblock %}
+{% block title %}
+    <title>Record</title>
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+{% block head %}
+    <div>
+        <h1 name="Page Header">Record</h1>
+    </div>
+    <div>
+        <h2 name="Welcome User">Welcome {{ name }}</h2>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messsage">
+                {% for message in messages %}
+                    <p class="message">{{ message }}</p>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% block body %}
+        <body>
+            <h3>Hello {{ name }}! Here you can record a video of your {{lift}}, or, upload your own!</h3>
+            <div id="btnsandform">
+                <div class="buttons">
+                    <button id="startbtn">START RECORDING</button>
+                    <button id="stopbtn">STOP RECORDING</button>
+                </div>
+                <form id="videoform" action="{{ url_for('main_bp.upload', lift=lift, colour=colour) }}" method="post">
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                    <script type="text/javascript" src="../static/js/video.js">
+                    </script>
+                    <button id="saveVid" type="submit">Save Video</button>
+                </form>
+            </div>
+            <video id="vid1"></video>
+            <video id="vid" controls></video>
+        </body>
+    {% endblock %}
+{% endblock %}

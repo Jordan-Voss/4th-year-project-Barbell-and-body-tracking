@@ -1,0 +1,29 @@
+#upload-or-record {
+    padding-left: 175px;
+}
+
+#upload
+{
+    /* background-image: url("../img/upload.png"); */
+    width:500px;
+    height:600px;
+    float: left;
+    padding: 5px;
+}
+
+#record
+{
+    /* background-image: url("../img/cam.png"); */
+    width:500px;
+    height:600px;
+    float: left;
+    padding: 5px;
+}
+
+
+p#recp {
+    width: fit-content;
+    margin-left: 5px;
+    overflow-x: hidden;
+    float: right;
+}

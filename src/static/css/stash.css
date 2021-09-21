@@ -1,0 +1,15 @@
+video#processed {
+	width: 15%    !important;
+	height: auto   !important;
+}
+#first {
+    float: left; width: 30%;
+}
+
+#second {
+    float: left; width: 30%;
+}
+
+#third {
+    float: left; width: 30%;
+}

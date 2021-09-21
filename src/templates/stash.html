@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+{% block title %}
+    <title>Stash</title>
+{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/stash.css">
+{% endblock %}
+{% block content %}
+    <body>
+        <!-- <a href="{{ url_for('main_bp.stashtrack', infoid=infoid) }}">{{lift}} {{ item }}</a> -->
+        <div id="first">
+            <ul> 
+                {% for item in list %}
+                    <li>
+                        <video id="processed" controls>
+                            <!-- https://bbtrack-bucket.s3-eu-west-1.amazonaws.com/n-video/video.mp4 ../static/video/video2.mp4 -->
+                            <source src="../static/video/bar.mp4" type="video/mp4">Your browser does not support the video tag.
+                        </video>
+                        <a href="{{ url_for('main_bp.stashtrack', infoid=list.get(item) )}}">{{ item }}</a>
+                    </li>
+                {% endfor %} 
+            </ul>
+        </div>
+    </body>
+{% endblock %}

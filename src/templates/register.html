@@ -1,0 +1,80 @@
+{% extends "home.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/login_register.css">
+{% endblock %}
+
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <body>
+        <div class="wrapper">
+            <div class="form-wrapper">
+                <h1>Create Account</h1>
+                <form class="form_register" action="/register" method="post">
+                    {% for field, errors in form.errors.items() %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ ', '.join(errors) }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                    {{form.hidden_tag() }}
+                    <div class="firstName">
+                        <label for="firstName">
+                            {{form.f_name.label }}
+                        </label>
+                        {{form.f_name }}
+                    </div>
+                    <div class="lastName">
+                        <label for="lastName">
+                            {{form.l_name.label }}
+                        </label>
+                        {{form.l_name }}
+                    </div>
+                    <div class="username">
+                        <label for="username">
+                            {{form.username.label}}
+                        </label>
+                        {{form.username }}
+                    </div>
+                    <div class="email">
+                        <label for="email">
+                            {{form.email.label}}
+                        </label>
+                        {{form.email }}
+                    </div>
+                    <div class="password">
+                        <label for="password">
+                            {{form.password.label}}
+                        </label>
+                        {{form.password }}
+                    </div>
+                    <div class="password2">
+                        <label for="password2">
+                            {{form.password2.label}}
+                        </label>
+                        {{form.password2 }}
+                    </div>
+                    <div class="createAccount">
+                        <button type="submit">Create Account</button>
+                    </div>
+                    <a href="/login" class="icon-power" title="Login">Already Have an Account?</a>
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}

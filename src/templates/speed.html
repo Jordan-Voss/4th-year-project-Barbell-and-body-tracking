@@ -1,0 +1,52 @@
+{% extends "home.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/upload.css">
+{% endblock %}
+{% block title %}
+    <title>Video</title>
+{% endblock %}
+{% block content %}
+    <body>
+        <p>Here's Your Processed Video Showing Your Bar Path and Speed during your {{lift}} {{ name }}!<br>
+            What RPE did you feel this was?
+        </p>
+        <p>Speed: {{speed}}m/s</p>
+        <p>RPE: {{rpe}}</p>
+        <table>
+            {% for key, value in dic.items() %}
+                <tr>
+                    <td> {{key}} </td>
+                    <td> {{value}} </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="wrapper">
+            <div class="form-wrapper">
+                <h3> What Do You Think?</h3>
+                <form class="data" action="/set-info?lift={{lift}}&speed={{speed}}&rpe={{rpe}}&colour={{colour}}&infoid={{infoid}}" method="post">
+                    {{form.hidden_tag() }}
+                    <div class="firstrep">
+                        <label for="firstrep">
+                            {{form.rpe.label }}
+                        </label>
+                        <div class="first-input">
+                            {{form.rpe}}
+                        </div>
+                    </div>
+                    <div class="createXercise">
+                        <button type="submit">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <video controls>
+            <source src={{ videourl }}>
+                Your browser does not support the video tag.
+        </video> -->
+        <video id="processed" controls autoplay>
+            <!-- https://bbtrack-bucket.s3-eu-west-1.amazonaws.com/n-video/video.mp4 ../static/video/video2.mp4 -->
+            <source src="../static/video/bar.mp4" type="video/mp4">Your browser does not support the video tag.
+        </video>
+    </body>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% block title %}
+    <title>Picker</title>
+{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/login_register.css">
+    <link rel="stylesheet" href="../static/css/colourpicker.css">
+{% endblock %}
+{% block content %}
+    <body>
+        <div id="upload-or-record">
+            <div id="upload">
+                <a href="{{ url_for('main_bp.body') }}">
+                    <p id="uplp">Upload File</p>
+                    <img src="../static/img/op.png">
+                </a>
+            </div>
+            <div id="record">
+                <a href="{{ url_for('main_bp.upload') }}">
+                    <p id="recp">Record Set</p>
+                    <img src="../static/img/bar.png">
+                </a>
+            </div>
+        </div>
+    </body>
+{% endblock %}

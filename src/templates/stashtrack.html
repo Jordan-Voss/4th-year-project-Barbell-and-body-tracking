@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+{% block title %}
+    <title>Body Track</title>
+{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/stashtrack.css">
+{% endblock %}
+{% block content %}
+    <body>
+        <div id="divs">
+            <div id="vids">
+                <video id="processed" controls autoplay>
+                    <source src={{vid1}} type="video/mp4">Your browser does not support the video tag.
+                </video>
+                <div class="overlay">
+                    <label for="processed">Bar Tracking</label>
+                </div>
+
+                <video id="processed2" controls autoplay>
+                    <source src={{vid2}} type="video/mp4">Your browser does not support the video tag.
+                </video>
+                <div class="overlay1">
+                    <label for="processed">Body Tracking</label>
+                </div>
+            </div>
+            <h3 id="totalscore">You Scored {{total}}/3!</h3>
+            {% if total == 0 %}
+                <p>Maybe you should drop the weight and focus on learning correct form so you don't get injured!</p>
+            {% elif total == 1 %}
+                <p>Maybe you're just having an off day. Try again next time, but be careful!</p>
+            {% elif total == 2 %}
+                <p>So close! You've nearly got it down! Keep practising and you'll be lifting efficiently and safely in no time!</p>
+            {% elif total == 3 %}
+                <p>WOW! You're a pro at this aren't you? Great work!</p>
+            {% endif %}
+
+            <div id="scoreinfo">
+                {% for key in keys %}
+                    <h4 id="key">{{key}}</h4>
+                    <p>{{score.get(key)}}</p>
+                    {% for item in tips.get(key) %}
+                        <p>{{item}}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        <!-- <object data="../application/dl.mp4" width="360" height="250"> <param name="src" value="../application/dl.avi"/> </object> -->
+    </body>
+{% endblock %}

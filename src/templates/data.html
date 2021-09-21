@@ -1,0 +1,60 @@
+{% extends "home.html" %}
+{% block styles %}
+    <link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+
+
+{% block title %}
+    <title>Data</title>
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <body>
+        <div class="wrapper">
+            <div class="form-wrapper">
+                <h1> Data Speed3 </h1>
+                <form class="data" action="/data" method="post">
+                    {{form.hidden_tag() }}
+                    <div class="firstrep">
+                        <label for="firstrep">
+                            {{form.f_rep.label }}
+                        </label>
+                        <div class="first-input">
+                            {{form.f_rep}}
+                        </div>
+                    </div>
+                    <div class="secondrep">
+                        <label for="secondrep">
+                            {{form.s_rep.label}}
+                        </label>
+                        <div class="secondrep-input">
+                            {{form.s_rep}}
+                        </div>
+                    </div>
+                    <div class="excercise">
+                        <label for="excercise">
+                            {{form.exc.label}}
+                        </label>
+                        <div class="exc-input">
+                            {{form.exc}}
+                        </div>
+                    </div>
+                    <div class="createXercise">
+                        <button type="submit">SUBMIT</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <table>
+            {% for key, value in dic.items() %}
+                <tr>
+                    <td> {{key}} </td>
+                    <td> {{value}} </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+{% endblock %}

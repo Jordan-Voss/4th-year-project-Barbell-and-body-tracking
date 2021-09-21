@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/upload.css">
+{% endblock %}
+{% block title %}
+    <title>Video</title>
+{% endblock %}
+{% block content %}
+    <body>
+        <form action="uploaded?lift={{lift}}&colour={{colour}}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="*.mp4"/>
+            <input type="submit"/>
+        </form>
+    </body>
+{% endblock %}

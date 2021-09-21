@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block title %}
+    <title>Homepage</title>
+{% endblock %}
+{% block styles %}
+    <link rel="icon" href="../static/img/logoblack.png">
+    <link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+<meta charset="utf-8">
+</head>
+{% block nav %}
+    <div id="nav-container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script class= "nav-script" type="text/jsx" >
+        class NavBar extends React.Component {
+            render() {
+                return (
+                    <nav className="navbar">
+                        <a href="/picker" className="nav-item" id="video">Capture Video </a>
+                        <a href="/stash" className="nav-item" id="stash">Stash</a>
+                        <a href="/" className="nav-item" id="home">Home</a>
+                        {% if current_user.is_authenticated %}
+                        <a href="/logout" className="nav-item" id="logout">Logout {{current_user.username}}</a>
+                        {% else %}
+                            <a href="/login" className="nav-item" id="login" title="Log in">Login</a>
+                            <a href="/register" className="nav-item" id="register" title="Register">Register</a>
+                        {% endif %}
+                    </nav>);
+                }
+            }
+            ReactDOM.render(
+                <NavBar />,
+                    document.getElementById("nav-container")
+                    );
+    </script>
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li id="message">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% block content %}
+    <body>
+        <div id="banner">
+            <h1 id="name">BBTrack</h1>
+            <h2 id="slogan">What gets measured, gets managed..</h2>
+            <!-- <img src="../static/img/banner.png" class="banner"/> -->
+        </div>
+        <p>Track your movements with the bar-bell tracker app
+            <br>Work smart and build your precision
+        </p>
+        <div id="options" >
+            <div id="track">
+                <h5 id="tracker">Track Your Bar's Path and Speed</h5>
+                <img src="../static/img/stuff.jpg"/>
+            </div>
+            <div id="rpe">
+                <h5 id="rpe1">Get Your Customised RPE Values</h5>
+                <img src="../static/img/stuff.jpg"/>
+            </div>
+            <div id="progress">
+                <h5 id="prog">Track Your Progress</h5>
+                <img src="../static/img/stuff.jpg"/>
+            </div>
+            <div id="form">
+                <h5 id="form-prog">Critique Your Form</h5>
+                <img src="../static/img/stuff.jpg"/>
+            </div>
+        </div>
+    </body>
+{% endblock %}
+</html>

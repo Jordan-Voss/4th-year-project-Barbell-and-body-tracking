@@ -1,0 +1,1 @@
+[Blog](https://barbelltracker.wordpress.com)

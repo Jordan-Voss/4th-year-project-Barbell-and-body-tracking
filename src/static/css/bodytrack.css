@@ -1,0 +1,32 @@
+h4#key {
+    text-align: center;
+}
+
+video#processed {
+    /* height: 100%; */
+    margin: 0 auto;
+    position: center;
+    width: 50%    !important;
+	height: auto   !important;
+    /* margin-top: 50%; */
+}
+
+#video1 {
+    height: 100%;
+    width: 45%;
+    float: left;
+    z-index: 1;
+}
+
+#scoreinfo {
+    height: 100%;
+    text-align: center;
+    display: block;
+    z-index: 1;
+}
+
+#divs{
+height: 100%;
+width: 100%;
+margin: auto;
+}

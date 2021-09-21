@@ -1,0 +1,13 @@
+<testsuite errors="0" failures="0" hostname="Jordans-MBP.fritz.box" name="login.Login Successful" skipped="0" tests="1" time="0.99053" timestamp="2021-01-27T18:48:29.507139"><testcase classname="login.Login Successful" name="User Logs In Successfully" status="passed" time="0.99053"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario: User Logs In Successfully
+    Given A user loads the homepage ... passed in 0.471s
+    And The user navigates to the login page ... passed in 0.410s
+    When The user logs in ... passed in 0.109s
+    Then The Logged in screen shows with ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

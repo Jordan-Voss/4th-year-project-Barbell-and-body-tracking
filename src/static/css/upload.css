@@ -1,0 +1,37 @@
+video#processed {
+    overflow-x: hidden;
+    display: block;
+    margin: auto;
+	margin-top: 5%;
+	width: 25%    !important;
+	height: auto   !important;
+}
+table, th, td {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+  }
+
+  button {
+	position: absolute;
+    top: 45%;
+	left: 45%;
+  }
+  .wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+p {
+    overflow-x: hidden;
+	text-align: center;
+	width: 100%;
+	color: #111;
+	font-weight: lighter;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}

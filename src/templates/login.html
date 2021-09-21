@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="../static/css/login_register.css">
+{% endblock %}
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <body>
+        <div class="wrapper">
+            <div class="form-wrapper">
+                <h1>Log In</h1>
+                <form class="form_login" action="/login" method="post">
+                    {{form.hidden_tag() }}
+                    <div class="uname">
+                        <label for="uname">
+                            {{form.username.label }}
+                        </label>
+                        <div class="username-input">
+                            {{form.username}}
+                        </div>
+                    </div>
+                    <div class="pword">
+                        <label for="pword">
+                            {{form.password.label}}
+                        </label>
+                        <div class="password-input">
+                            {{form.password}}
+                        </div>
+                    </div>
+                    <div class="rememberMe">
+                        <label for="rememberMe">
+                            {{form.remember.label}}
+                        </label>
+                        {{form.remember}}
+                    </div>
+                    <div class="createAccount">
+                        <button type="submit">Log In</button>
+                    </div>
+                    <a href="/register" class="icon-power" title="Login">Don't Have an Account?</a>
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}
